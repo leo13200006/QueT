@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Button, Alert } from 'react-native'
+import { Text, StyleSheet, View, Alert,Dimensions } from 'react-native'
 import { globalStyles } from '../../../styles/global';
 import * as firebase from 'firebase'
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { ActivityIndicator } from 'react-native';
+import {Button} from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+const {width:WIDTH}=Dimensions.get('window')
 
 export default class account extends Component {
 
@@ -52,9 +56,17 @@ export default class account extends Component {
     }
 
     return (
-      <View style={globalStyles.container}>
+      <View style={styles.body}>
         <Button
-          title='Log Out' 
+          title='Log Out'
+          icon={
+        <Icon
+          name="sign-out"
+          size={15}
+          color="white"
+          style={{paddingRight:20}}
+        />
+          }
           onPress={() => {
             firebase
               .auth()
@@ -67,44 +79,33 @@ export default class account extends Component {
 
         { !this.state.isWantToUpdate ?
         <View>
-          <Text style={styles.myLabel}>Full Name </Text>
-            <TextInput style={styles.myInput} 
-              value = {this.state.fullName}
-              editable = {this.state.isWantToUpdate}
-              onChangeText = {val => this.setState({ fullName: val })}
-            />
-            <Text style={styles.myLabel}>Gmail </Text>
-            <TextInput style={styles.myInput} 
-              value = {this.state.gmail}
-              editable = {this.state.isWantToUpdate}
-              onChangeText = {val => this.setState({ gmail: val })}
-            />
-            <Text style={styles.myLabel}>Verified Phone Number </Text>
-            <TextInput style={styles.myInput} 
-              value = {this.state.phoneNo}
-              editable = {this.state.isWantToUpdate}
-              onChangeText = {val => this.setState({ phoneNo: val })}
-            /> 
+          {}
         </View> 
           :
-        <View>
-          <Text style={styles.myAfterLabel}>Full Name </Text>
-          <TextInput style={styles.myAfterInput} 
+        <View >
+          <TextInput style={styles.myInput} 
             value = {this.state.fullName}
             editable = {this.state.isWantToUpdate}
             onChangeText = {val => this.setState({ fullName: val })}
+            placeholder={'Full name'}
+                   placeholderTextColor={'rgba(255,255,255,0.7)'}
+                   underlineColorAndroid='transparent'
           />
-          <Text style={styles.myAfterLabel}>Gmail </Text>
-          <TextInput style={styles.myAfterInput} 
+          <TextInput style={styles.myInput} 
             value = {this.state.gmail}
             editable = {this.state.isWantToUpdate}
             onChangeText = {val => this.setState({ gmail: val })}
+            placeholder={'Email ID'}
+                   placeholderTextColor={'rgba(255,255,255,0.7)'}
+                   underlineColorAndroid='transparent'
           />
-          <Text style={styles.myLabel}>Verified Phone Number </Text>
+          <Text style={styles.myAfterLabel}>Verified Phone Number </Text>
           <TextInput style={styles.myInput} 
             value = {this.state.phoneNo}
             editable = {!this.state.isWantToUpdate}
             onChangeText = {val => this.setState({ phoneNo: val })}
+                   placeholderTextColor={'rgba(255,255,255,0.7)'}
+                   underlineColorAndroid='transparent'
           />
         </View>
       }
@@ -113,12 +114,17 @@ export default class account extends Component {
           <TouchableOpacity style={styles.myBtn} onPress={() => {this.setState({ isWantToUpdate: true })}}>
             <Text style={styles.myBtnText}>Update Info</Text>
           </TouchableOpacity> : 
-          <TouchableOpacity style={styles.myAfterBtn} onPress={() => {
+          <View>
+          <TouchableOpacity style={styles.myBtn} onPress={() => {
               this.updateData()
               this.setState({ isWantToUpdate: false })
             }}>
-            <Text style={styles.myAfterBtnText}>Update it </Text>
+            <Text style={styles.myBtnText}>Update it </Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.myBtn} onPress={()=>this.setState({isWantToUpdate:false})}>
+            <Text style={styles.myBtnText}>Cancel</Text>
+          </TouchableOpacity>
+          </View>
          }
 
     </View>
@@ -127,6 +133,11 @@ export default class account extends Component {
 }
 
 const styles = StyleSheet.create({
+  body:{
+    backgroundColor:'#424242',
+    padding:50,
+    height:'100%'
+},
   myLabel: {
     fontSize: 16,
     fontWeight: '700',
@@ -135,19 +146,32 @@ const styles = StyleSheet.create({
     margin: 8,
   },
   myInput: {
-    fontSize: 21,
-    color: '#888',
-    padding: 13,
-    margin: 10,
-    borderWidth: 1,
-    borderColor: '#aaa',
-    borderRadius: 15
+    alignSelf:'center',
+    width: WIDTH - 55,
+    height:55,
+    borderRadius:45,
+    fontSize:16,
+    paddingLeft:45,
+    backgroundColor:'rgba(0,0,0,0.35)',
+    color:'rgba(255,255,255,0.7)',
+    marginHorizontal:25,
+    fontFamily:'nunito-bold',
+    margin:20
   },
   myBtn: {
-    padding: 15,
-    margin: 10,
-    borderWidth: 1,
-    borderColor: '#222',
+    width:WIDTH - 55,
+    alignSelf:'center',
+    height:55,
+    borderRadius:25,
+    backgroundColor:'#fedbd0',
+    justifyContent:'center',
+    marginTop:20,
+    marginHorizontal:25,
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: '#333',
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 3,
   },
   myBtnText: {
     padding: 7,
@@ -161,10 +185,8 @@ const styles = StyleSheet.create({
   myAfterLabel: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#555',
-    padding: 10,
-    margin: 8,
-    color: 'red',
+    color: '#fff',
+ 
   },
   myAfterInput: {
     fontSize: 21,
@@ -194,3 +216,4 @@ const styles = StyleSheet.create({
   },
 
 })
+
