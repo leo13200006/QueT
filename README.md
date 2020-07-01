@@ -20,7 +20,9 @@ the people he can handle without compromising on social distancing.
 Issues addressed:
 
 ►Social Distancing
+
 ►Eliminating Interaction
+
 ►Real time update 
 ►Long Waiting Hours
 ►Making customer handling easier
