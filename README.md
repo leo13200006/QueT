@@ -74,9 +74,9 @@ button
 
 ►Thus preventing spam people from joining the queue
 
-Expo link to test our app : https://expo.io/@rehan2156/appquet
-
 The motivation for this app comes from social distancing violations at wine shops all across India. Several people gathered at shops in long queues. Thus posing a health alert for COVID 19 local transmission.
+
+# Expo link to test our app : https://expo.io/@rehan2156/appquet
 
 
 # Screenshots of the app :
