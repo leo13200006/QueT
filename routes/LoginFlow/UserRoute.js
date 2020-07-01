@@ -13,13 +13,6 @@ const UserRoute = createSwitchNavigator({
     Selection: Selcation,
     Customer: RootDrawerNavigator,
     Shopkeeper: ShopRoute,
-},
-{
-    defaultNavigationOptions: {
-        // headerTintColor: '#444'
-        headerStyle: { backgroundColor: '#Fedbd0', height: 80 }
-      }
-}
-)
+})
 
 export default UserRoute

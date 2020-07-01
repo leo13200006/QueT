@@ -5,17 +5,13 @@ import MainRoute from './routes/MainRoute';
 import * as firebase from 'firebase';
 import firebaseConfig from './config';
 
-
 firebase.initializeApp(firebaseConfig)
 
 console.log(firebase)
 
 const getFonts = () => Font.loadAsync({
-  'Righteous': require('./assets/fonts/Righteous-Regular.ttf'),
-  'Acme': require('./assets/fonts/Acme-Regular.ttf'),
   'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
   'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf'),
-  'Metal-Mania': require('./assets/fonts/MetalMania-Regular.ttf'),
 });
 
 export default function App() {
@@ -32,4 +28,5 @@ export default function App() {
       />
     )
   }
+
 }

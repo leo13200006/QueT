@@ -16,11 +16,10 @@ const LoginNav = createStackNavigator({
         },
     },
     {
-      defaultNavigationOptions: {
-        // headerTintColor: '#444'
-        headerShown:false,
-        headerStyle: { backgroundColor: '#Fedbd0', height: 80 }
-      }
+        defaultNavigationOptions: {
+          headerTintColor: '#444',
+          headerStyle: { backgroundColor: 'coral', height: 80,borderBottomLeftRadius:20,borderBottomRightRadius:20 }
+        }
       }
 )
 
