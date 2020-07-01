@@ -1,7 +1,12 @@
 {
   "expo": {
     "name": "QueT",
-    "slug": "QueT",
+    "slug": "done2",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,8 +24,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "description": "",
+    "githubUrl": "https://github.com/leo13200006/Quet"
   }
 }
