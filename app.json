@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "QueT",
-    "slug": "done2",
+    "slug": "appquet",
     "platforms": [
       "ios",
       "android",
@@ -24,7 +24,10 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "",
-    "githubUrl": "https://github.com/leo13200006/Quet"
+    "android": {
+      "package": "com.yourcompany.yourappname",
+      "versionCode": 1
+    },
+    "description": ""
   }
 }
