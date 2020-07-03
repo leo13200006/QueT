@@ -28,6 +28,11 @@ export default class CustomSidebarMenu extends Component {
       },
       {
         navOptionThumb: 'error-outline',
+        navOptionName: 'Appoinments',
+        screenToNavigate: 'Appoinment',
+      },
+      {
+        navOptionThumb: 'error-outline',
         navOptionName: 'About QueT',
         screenToNavigate: 'About',
       },

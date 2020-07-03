@@ -6,6 +6,7 @@ import { createAppContainer } from 'react-navigation';
 import AboutStack from '../DrawerNaviagtion/aboutStack';
 import shopHomeStack from './shopHomeStack.js';
 import CustomSidebarMenu from './customSidebarMenu.js';
+import ShopKeeperAppoinmentAddScreen from '../../screens/User/Shopkeeper/ShopKeeperAppoinmentAddScreen';
 
 // drawer navigation options
 const shopRootDrawerNavigator = createDrawerNavigator({
@@ -18,6 +19,9 @@ const shopRootDrawerNavigator = createDrawerNavigator({
   },
   About: {
     screen: AboutStack,
+  },
+  Appoinment: {
+    screen: ShopKeeperAppoinmentAddScreen,
   },
 },
 {
