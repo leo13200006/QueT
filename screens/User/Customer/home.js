@@ -5,6 +5,7 @@ import * as firebase from 'firebase'
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, FlatList,Linking, ActivityIndicator } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import { color } from 'react-native-reanimated';
 
 export default class Home extends Component {
 
@@ -73,11 +74,11 @@ export default class Home extends Component {
     }
 
     return (
-        <View style={globalStyles.container}>
+        <View style={globalStyles.body}>
         <View style={styles.input}>
           <SearchBar        
               placeholder="Search for stores..."        
-              darkTheme        
+              lightTheme        
               round        
               onChangeText={text => {
                 this.setState({ textToBeSerach: text })
@@ -88,9 +89,9 @@ export default class Home extends Component {
           />    
         </View>  
         <View>
-        <Text style={styles.heading}>Most Recommended</Text>
+        <Text style={styles.heading}>Shops using QueT</Text>
         <FlatList data={this.state.tempArray} renderItem={({ item }) => (
-          <TouchableOpacity style={{backgroundColor:'#F4D03F', borderRadius:10}} onPress={() => this.props.navigation.navigate('ReviewDetails', item)}>
+          <TouchableOpacity style={styles.touchable} onPress={() => this.props.navigation.navigate('ReviewDetails', item)}>
             <Card>
             <View style={styles.cardAlign}>
             <View>
@@ -111,22 +112,36 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+  body:{
+    backgroundColor:'#424242',
+    // padding:50,
+    // borderTopLeftRadius:150,
+    // flex:1,
+    // padding:20
+},
     heading:{
         textAlign:'center',
-        borderWidth:1,
         padding:20,
-        margin:50,
-        fontSize:20,
-        borderRadius:30,
-        backgroundColor:'#AF7AC5',
-        fontFamily:'serif',
-        borderColor:'#AF7AC5',
-        
+        fontSize:25,
+        marginTop:10,
+        marginBottom:10,
+        fontFamily:'nunito-bold',
+        color:'#fff'
     },
     
     cardAlign:{
         flexDirection:'row',
-        justifyContent:'space-between'
+        justifyContent:'space-between',
+    },
+
+    touchable:{
+      backgroundColor:'#F4D03F', borderRadius:10,marginTop:10,marginBottom:10,
+      elevation:20,
+      backgroundColor:'#424242',
+        shadowOffset: { width: 5, height: 5 },
+        shadowColor: '#333',
+        shadowOpacity: 0.3,
+        shadowRadius: 2,
     },
 
     input:{

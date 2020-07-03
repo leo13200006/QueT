@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, Alert  } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import * as firebase from 'firebase'
+import { globalStyles } from '../../styles/global'
 
 export default class Selction extends Component {
 
@@ -39,8 +40,9 @@ export default class Selction extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.label}> You Can't Change After so click correctly </Text>
+            <View style={globalStyles.body}>
+            <View style={styles.box}>
+                <Text style={styles.label}> Who are you ? </Text>
 
                 <TouchableOpacity 
                     style={styles.myBtn}
@@ -48,14 +50,14 @@ export default class Selction extends Component {
                 >
                     <Text style={styles.btnText}> Customer </Text> 
                 </TouchableOpacity>
-
+                <Text style={styles.label}>OR</Text>
                 <TouchableOpacity 
                     style={styles.myBtn}
                     onPress = {() =>  this.sendDataToDatabase("Shopkeeper") }
                 >
-                    <Text style={styles.btnText}> ShopKeeper </Text> 
+                    <Text style={styles.btnText}> Store Owner </Text> 
                 </TouchableOpacity>
-
+            </View>
             </View>
         )
     }
@@ -72,10 +74,12 @@ const styles = StyleSheet.create({
     },
 
     label: {
-        fontSize: 15,
-        fontWeight: 'bold',
+        fontSize: 30,
+        fontFamily:'nunito-bold',
         padding: 10,
         margin: 10,
+        color:'#fff',
+        textAlign:'center'
     },
     myBtn: {
         borderColor: '#999',
@@ -83,11 +87,28 @@ const styles = StyleSheet.create({
         padding: 20,
         margin: 15,
         borderRadius: 15,
+        backgroundColor:'#Fedbd0'
     },
     btnText: {
         fontSize: 25,
-        fontStyle: 'italic',
-        fontWeight: 'bold',
+        fontFamily:'nunito-bold',
+        textAlign:'center'
     },
+    box:{
+        padding:20,
+        alignContent:'center',
+        justifyContent:'center',
+        textAlign:'center',
+        marginTop:80,
+        backgroundColor:'#424242',
+        alignSelf:'center',
+        shadowOffset: { width: 5, height: 5 },
+        shadowColor: '#333',
+        shadowOpacity: 0.3,
+        shadowRadius: 2,
+        // borderBottomEndRadius:15,
+        // borderTopLeftRadius:15,
+        elevation: 10,    
+    }
 
 })

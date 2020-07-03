@@ -5,7 +5,10 @@ import MainRoute from './routes/MainRoute';
 import * as firebase from 'firebase';
 import firebaseConfig from './config';
 
+
 firebase.initializeApp(firebaseConfig)
+
+console.log(firebase)
 
 const getFonts = () => Font.loadAsync({
   'Righteous': require('./assets/fonts/Righteous-Regular.ttf'),
@@ -29,4 +32,5 @@ export default function App() {
       />
     )
   }
+
 }

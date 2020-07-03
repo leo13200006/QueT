@@ -7,7 +7,10 @@ import { ActivityIndicator } from 'react-native';
 import {Button} from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 const {width:WIDTH}=Dimensions.get('window')
+
+
 
 export default class account extends Component {
 
@@ -79,7 +82,33 @@ export default class account extends Component {
 
         { !this.state.isWantToUpdate ?
         <View>
-          {}
+          {/* <Text style={styles.myLabel}>Full Name </Text>
+            <TextInput style={styles.myInput} 
+              value = {this.state.fullName}
+              editable = {this.state.isWantToUpdate}
+              onChangeText = {val => this.setState({ fullName: val })}
+              placeholder={'Full name'}
+                   placeholderTextColor={'rgba(255,255,255,0.7)'}
+                   underlineColorAndroid='transparent'
+            />
+            <Text style={styles.myLabel}>Gmail </Text>
+            <TextInput style={styles.myInput} 
+              value = {this.state.gmail}
+              editable = {this.state.isWantToUpdate}
+              onChangeText = {val => this.setState({ gmail: val })}
+              placeholder={'Email ID'}
+                   placeholderTextColor={'rgba(255,255,255,0.7)'}
+                   underlineColorAndroid='transparent'
+            />
+            <Text style={styles.myLabel}>Verified Phone Number </Text>
+            <TextInput style={styles.myInput} 
+              value = {this.state.phoneNo}
+              editable = {this.state.isWantToUpdate}
+              onChangeText = {val => this.setState({ phoneNo: val })}
+              placeholder={'Password'}
+                   placeholderTextColor={'rgba(255,255,255,0.7)'}
+                   underlineColorAndroid='transparent'
+            />  */}
         </View> 
           :
         <View >
@@ -171,6 +200,8 @@ const styles = StyleSheet.create({
     shadowColor: '#333',
     shadowOpacity: 0.3,
     shadowRadius: 2,
+    // borderBottomEndRadius:15,
+    // borderTopLeftRadius:15,
     elevation: 3,
   },
   myBtnText: {
@@ -216,4 +247,3 @@ const styles = StyleSheet.create({
   },
 
 })
-

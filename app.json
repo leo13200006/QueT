@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "QueT",
-    "slug": "appquet",
+    "name": "UIhogayakadak",
+    "slug": "uihogayakadak",
     "platforms": [
       "ios",
       "android",
@@ -23,10 +23,6 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "android": {
-      "package": "com.yourcompany.yourappname",
-      "versionCode": 1
     },
     "description": ""
   }

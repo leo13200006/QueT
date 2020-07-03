@@ -2,6 +2,7 @@ import * as React from "react";
 import { Text, View, TextInput, Button, StyleSheet, TouchableOpacity, Platform, Alert } from "react-native";
 import { FirebaseRecaptchaVerifierModal } from "expo-firebase-recaptcha";
 import * as firebase from "firebase";
+import { globalStyles } from "../styles/global";
 
 const PhoneNumVeriScreen = ( props ) => {
     const recaptchaVerifier = React.useRef(null);
@@ -52,15 +53,15 @@ const PhoneNumVeriScreen = ( props ) => {
       }
 
     return (
-      <View style={{ padding: 20, marginTop: 50 }}>
+      <View style={globalStyles.body}>
         <FirebaseRecaptchaVerifierModal
           ref={recaptchaVerifier}
           firebaseConfig={firebaseConfig}
         />
-        <Text style={{ marginTop: 20 }}>Enter phone number</Text>
+        <Text style={{ marginTop: 20,color:'#fff',fontSize:20,fontFamily:'nunito-bold' }}>Enter phone number</Text>
         <TextInput
           style={styles.textBox}
-          placeholder="+1 999 999 9999"
+          placeholder="+91 999 999 9999"
           autoFocus
           autoCompleteType="tel"
           keyboardType="phone-pad"
@@ -72,7 +73,7 @@ const PhoneNumVeriScreen = ( props ) => {
           disabled={!phoneNumber}
           onPress={phoneNumberSend}
         />
-        <Text style={{ marginTop: 20 }}>Enter Verification code</Text>
+        <Text style={{ marginTop: 20,color:'#fff',fontSize:20,fontFamily:'nunito-bold' }}>Enter Verification code</Text>
         <TextInput
           style={styles.textBox}
           editable={!!verificationId}
@@ -80,6 +81,7 @@ const PhoneNumVeriScreen = ( props ) => {
           onChangeText={setVerificationCode}
         />
         <Button
+          style={{fontFamily:'nunito-bold'}}
           title="Confirm Verification Code"
           disabled={!verificationId}
           onPress={phoneNumberUpload}
@@ -88,7 +90,7 @@ const PhoneNumVeriScreen = ( props ) => {
           <TouchableOpacity
             style={[StyleSheet.absoluteFill, styles.message ]}
             onPress={() => showMessage(undefined)}>
-            <Text style={{color: message.color || "blue", fontSize: 17, textAlign: "center", marginTop: 100, }}>
+            <Text style={{color: message.color || "white", fontSize: 20, textAlign: "center", marginTop: 100,fontFamily:'nunito-bold' }}>
               {message.text}
             </Text>
           </TouchableOpacity>
@@ -98,8 +100,8 @@ const PhoneNumVeriScreen = ( props ) => {
 }
 
 var styles = StyleSheet.create({
-    textBox: { marginVertical: 10, fontSize: 17 },
-    message: { backgroundColor: 0xffffffee, justifyContent: "center" },
+    textBox: { marginVertical: 10, fontSize: 17,fontFamily:'nunito-bold',color:'#fff' },
+    message: { justifyContent: "center",fontFamily:'nunito-bold' },
 })
 
 export default PhoneNumVeriScreen
